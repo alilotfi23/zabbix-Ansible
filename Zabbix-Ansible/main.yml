@@ -1,6 +1,6 @@
 - name: install zabbix
   gather_facts: 'No'
-  hosts: slave4
+  hosts: serverhostname
   become: 'yes'
   become_method: sudo
   tasks:

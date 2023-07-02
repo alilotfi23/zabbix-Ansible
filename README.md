@@ -1,2 +1,2 @@
-# zabbix-Ansible
-simple ansible palybook for install zabbiz v5 on centos7
+# Zabbix-Ansible
+simple ansible playbook for installing Zabbiz v5 on centos7

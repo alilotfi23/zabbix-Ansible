@@ -1,0 +1,9 @@
+#- name: disable selinux
+#  lineinfile:
+#    path: /etc/selinux/config
+#    regexp: "SELINUX"
+#    line: "SELINUX=disabled"
+#    backup: 'yes'
+- name: disable selinux
+  selinux:
+   state: disabled

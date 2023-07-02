@@ -1,0 +1,15 @@
+- name: install package
+  yum:
+   name: "{{item}}"
+   state: latest
+  loop:
+     - centos-release-scl
+     - zabbix-web-mysql-scl
+     - zabbix-apache-conf-scl
+
+
+
+#- name: install pack
+#  shell: sudo yum install -y  zabbix-web-mysql-scl zabbix-apache-conf-scl centos-release-scl  --skip-broken
+#  shell: sudo yum install -y  centos-release-scl 
+#  shell: sudo yum install zabbix-web-mysql-scl zabbix-apache-conf-scl

@@ -1,0 +1,6 @@
+- name: change php lines
+  lineinfile:
+   path: /etc/opt/rh/rh-php72/php-fpm.d/zabbix.conf
+   regexp: "php_value[date.timezone]"
+   line: "php_value[date.timezone] = Asia/Tehran"
+

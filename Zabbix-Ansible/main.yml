@@ -1,0 +1,27 @@
+- name: install zabbix
+  gather_facts: 'No'
+  hosts: slave4
+  become: 'yes'
+  become_method: sudo
+  tasks:
+    - name: disable selinux
+      include: selinux.yml
+    - name: install apache
+      include: httpd.yaml
+    - name: add repo
+      include: install.yml
+    - name:  yum-config-manager
+      include: command.yml
+    - name: install zabbix req
+      include: php.yaml
+    - name: create zabbix database
+      include: mariadb.yml
+    - name: zabbix config
+      include: zabbix.yml
+    - name: set timezone
+      include: changelines.yml
+    - name: restart services
+      include: restart.yml
+    - name: firewall config
+      include: firewall.yml
+

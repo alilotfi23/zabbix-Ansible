@@ -1,0 +1,13 @@
+- name: install package
+  yum:
+   name: "{{item}}"
+   state: latest
+  loop:
+     - epel-release
+     - https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+     - http://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm
+     - zabbix-server-mysql
+     - zabbix-agent
+     - zabbix-get
+     - mariadb-server
+     - MySQL-python

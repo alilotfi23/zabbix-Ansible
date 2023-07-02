@@ -1,0 +1,41 @@
+- name: enable mariadb service
+  service:
+    name: mariadb
+    enabled: 'yes'
+  tags:
+    - zabbix_mariadb
+- name: restart mariadb service
+  service:
+    name: mariadb
+    state: restarted
+  tags:
+    - zabbix_mariadb
+- name: create zabbix database
+  mysql_db:
+    name: zabbix
+    collation: utf8_bin
+    encoding: utf8
+    state: present
+  tags:
+    - zabbix_mariadb
+- name: create zabbix user
+  mysql_user:
+    name: zabbix
+    password: password    
+    host: localhost
+    priv: '*.*:ALL,GRANT'
+    state: present
+  tags:
+    - zabbix_mariadb
+- name: copy create.sql.gz to /tmp
+  copy:
+    src: /usr/share/doc/zabbix-server-mysql-5.0.21/create.sql.gz
+    dest: /tmp/
+    remote_src: true
+  tags:
+    - zabbix_mariadb
+- name: run create.sql.gz
+  shell: sudo zcat /tmp/create.sql.gz | mysql -u root  zabbix
+  tags:
+    - zabbix_mariadb
+

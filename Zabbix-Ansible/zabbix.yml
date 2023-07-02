@@ -1,0 +1,11 @@
+- name: change value
+  lineinfile:
+    path: /etc/zabbix/zabbix_server.conf
+    regexp: "DBHost"
+    line: "DBHost=localhost"
+- name: change value-2
+  lineinfile:
+    path: /etc/zabbix/zabbix_server.conf
+    regexp: "DBPassword"
+    line: "DBPassword=password"
+ 

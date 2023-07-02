@@ -1,0 +1,6 @@
+- name: open web server port
+  shell:  firewall-cmd --add-service={http,https} --permanent  
+- name: reload firewall
+  shell:  firewall-cmd --reload
+
+  
